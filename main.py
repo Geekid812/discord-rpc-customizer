@@ -190,6 +190,18 @@ class Ui_MainWindow(Signals):
         self.partySizeLabel.setText(_translate("MainWindow", "Party Size"))
         self.autoStartTimeCheck.setText(_translate("MainWindow", "Auto Start Time"))
         self.appIdLabel.setText(_translate("MainWindow", "Application ID"))
+        self.startTimeCheck.setToolTip(_translate("MainWindow", "Including this will show time as \"elapsed\""))
+        self.autoStartTimeCheck.setToolTip(_translate("MainWindow", "When checked, the start time will be set to the current time"))
+        self.partyMaxLabel.setToolTip(_translate("MainWindow", "Maximum size of the party, lobby or group"))
+        self.largeImageTextLabel.setToolTip(_translate("MainWindow", "Tooltip for the large image"))
+        self.largeImageKeyLabel.setToolTip(_translate("MainWindow", "Key of the uploaded image for the large profile artwork"))
+        self.stateLabel.setToolTip(_translate("MainWindow", "The current party status"))
+        self.detailsLabel.setToolTip(_translate("MainWindow", "What you are currently doing"))
+        self.smallImageKeyLabel.setToolTip(_translate("MainWindow", "Key of the uploaded image for the small profile artwork"))
+        self.smallImageTextLabel.setToolTip(_translate("MainWindow", "Tooltip for the small image"))
+        self.endTimeCheck.setToolTip(_translate("MainWindow", "Including this will show time as \"remaining\""))
+        self.partySizeLabel.setToolTip(_translate("MainWindow", "Current size of the party, lobby or group"))
+        self.appIdLabel.setToolTip(_translate("MainWindow", "Your application ID - see the Help menu for more info"))
 
     def bind_signals(self):
         self.startTimeCheck.clicked.connect(self.toggle_start_time)

@@ -174,6 +174,11 @@ class Ui_MainWindow(Signals):
         self.partySizeLabel.setText(_translate("MainWindow", "Party Size"))
         self.autoStartTimeCheck.setText(_translate("MainWindow", "Auto Start Time"))
 
+    def bind_signals(self):
+        self.startTimeCheck.clicked.connect(self.toggle_start_time)
+        self.endTimeCheck.clicked.connect(self.toggle_end_time)
+        self.autoStartTimeCheck.clicked.connect(self.toggle_auto_start_time)
+        self.updateButton.clicked.connect(self.update_presence)
 
 if __name__ == "__main__":
     import sys

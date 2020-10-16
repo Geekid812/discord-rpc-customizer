@@ -172,12 +172,13 @@ class Ui_MainWindow(Signals):
 
         self.retranslateUi(MainWindow)
         self.bind_signals()
+        self.set_datetimes()
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         self.updateButton.setText(_translate("MainWindow", "Update Presence"))
-        self.titleLabel.setText(_translate("MainWindow", "Text"))
+        self.titleLabel.setText(_translate("MainWindow", "Discord Rich Presence Customizer"))
         self.startTimeCheck.setText(_translate("MainWindow", "Start Time"))
         self.partyMaxLabel.setText(_translate("MainWindow", "Party Max"))
         self.largeImageTextLabel.setText(_translate("MainWindow", "Large Image Text"))

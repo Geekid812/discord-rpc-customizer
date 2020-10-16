@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import QDateTime
 from re import match
 from time import time
 
@@ -79,3 +80,11 @@ class Signals(object):
         msg = QMessageBox(QMessageBox.Information, title, message, QMessageBox.Ok)
         msg.setWindowIcon(QIcon('icon.png'))
         msg.exec_()
+
+    def set_datetimes(self):
+        start_dt = QDateTime()
+        start_dt.setSecsSinceEpoch(int(time()))
+        end_dt = start_dt.addSecs(60 * 60)
+
+        self.startTimeEdit.setDateTime(start_dt)
+        self.endTimeEdit.setDateTime(end_dt)

@@ -16,7 +16,6 @@ class Ui_MainWindow(Signals):
         self.updateButton = QtWidgets.QPushButton(self.centralwidget)
         self.updateButton.setGeometry(QtCore.QRect(310, 540, 101, 23))
         self.updateButton.setObjectName("updateButton")
-        self.updateButton.clicked.connect(self.clicked)
 
         self.titleLabel = QtWidgets.QLabel(self.centralwidget)
         self.titleLabel.setGeometry(QtCore.QRect(10, 10, 711, 20))
@@ -146,6 +145,22 @@ class Ui_MainWindow(Signals):
         self.autoStartTimeCheck.setObjectName("autoStartTimeCheck")
         self.gridLayout.addWidget(self.autoStartTimeCheck, 5, 0, 1, 1)
 
+        self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 520, 160, 41))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        
+        self.appIdLabel = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.appIdLabel.setObjectName("appIdLabel")
+        self.verticalLayout.addWidget(self.appIdLabel)
+        
+        self.appIdEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.appIdEdit.setObjectName("appIdEdit")
+        self.verticalLayout.addWidget(self.appIdEdit)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 731, 21))
@@ -156,6 +171,7 @@ class Ui_MainWindow(Signals):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+        self.bind_signals()
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -173,12 +189,13 @@ class Ui_MainWindow(Signals):
         self.endTimeCheck.setText(_translate("MainWindow", "End Time"))
         self.partySizeLabel.setText(_translate("MainWindow", "Party Size"))
         self.autoStartTimeCheck.setText(_translate("MainWindow", "Auto Start Time"))
+        self.appIdLabel.setText(_translate("MainWindow", "Application ID"))
 
     def bind_signals(self):
         self.startTimeCheck.clicked.connect(self.toggle_start_time)
         self.endTimeCheck.clicked.connect(self.toggle_end_time)
         self.autoStartTimeCheck.clicked.connect(self.toggle_auto_start_time)
-        self.updateButton.clicked.connect(self.update_presence)
+        self.updateButton.clicked.connect(self.update_clicked)
 
 if __name__ == "__main__":
     import sys

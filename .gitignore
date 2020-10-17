@@ -1,5 +1,11 @@
+# Python cache
 __pycache__
+
+# UI files
 main.ui
+about.ui
+
+# Build files
 main.spec
 build
 dist

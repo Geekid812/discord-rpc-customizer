@@ -1,11 +1,12 @@
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QDialog
 from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import QDateTime
+from PyQt5.QtCore import QDateTime, Qt
 from re import match
 from time import time
 
 from presence import update_presence
 from resource import resource_path
+from about import AboutDialog
 
 digits_only = r'^[0-9]*$'
 
@@ -89,3 +90,10 @@ class Signals(object):
 
         self.startTimeEdit.setDateTime(start_dt)
         self.endTimeEdit.setDateTime(end_dt)
+
+    def open_about(self):
+        dialog = QDialog(self.centralwidget, Qt.WindowCloseButtonHint)
+        about = AboutDialog()
+        about.setupUi(dialog)
+        dialog.show()
+        dialog.exec_()

@@ -228,7 +228,7 @@ class Ui_MainWindow(Signals):
         self.menuHelp.setTitle(_translate("MainWindow", "Help"))
         self.actionGitHub_Wiki.setText(_translate("MainWindow", "GitHub Wiki"))
         self.actionDeveloper_Portal.setText(_translate("MainWindow", "Developer Portal"))
-        self.actionAbout_Discord_RPC.setText(_translate("MainWindow", "About Discord RPC"))
+        self.actionAbout_Discord_RPC.setText(_translate("MainWindow", "About Discord RP Customizer"))
         self.actionComing_Soon.setText(_translate("MainWindow", "Coming Soon..."))
 
     def bind_signals(self):
@@ -236,6 +236,7 @@ class Ui_MainWindow(Signals):
         self.endTimeCheck.clicked.connect(self.toggle_end_time)
         self.autoStartTimeCheck.clicked.connect(self.toggle_auto_start_time)
         self.updateButton.clicked.connect(self.update_clicked)
+        self.actionAbout_Discord_RPC.triggered.connect(self.open_about)
 
         self.actionDeveloper_Portal.triggered.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://discord.com/developers/applications")))
 

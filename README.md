@@ -16,7 +16,7 @@ Made using [PyQt5](https://pypi.org/project/PyQt5) and [pypresence](https://gith
 > ### Download the latest released executable [here](https://github.com/geekid812/discord-rpc-customizer/releases).
 
 ## Using the source
-You must have Python 3.8 or above installed (versions below that are not officially supported).
+You must have Python 3.8 or above installed (versions below are not officially supported).
 
 Clone the repository:
 ```

@@ -6,8 +6,8 @@ class Ui_MainWindow(Signals):
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(730, 600)
-        MainWindow.setFixedSize(730, 600)
+        MainWindow.resize(730, 580)
+        MainWindow.setFixedSize(730, 580)
         MainWindow.setWindowIcon(QtGui.QIcon(resource_path('icon.ico')))
         MainWindow.setWindowTitle("Discord Rich Presence Customizer")
 
@@ -15,19 +15,11 @@ class Ui_MainWindow(Signals):
         self.centralwidget.setObjectName("centralwidget")
 
         self.updateButton = QtWidgets.QPushButton(self.centralwidget)
-        self.updateButton.setGeometry(QtCore.QRect(310, 540, 101, 23))
+        self.updateButton.setGeometry(QtCore.QRect(310, 510, 101, 23))
         self.updateButton.setObjectName("updateButton")
 
-        self.titleLabel = QtWidgets.QLabel(self.centralwidget)
-        self.titleLabel.setGeometry(QtCore.QRect(10, 10, 711, 20))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.titleLabel.setFont(font)
-        self.titleLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.titleLabel.setObjectName("titleLabel")
-
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(10, 40, 711, 471))
+        self.groupBox.setGeometry(QtCore.QRect(10, 10, 711, 471))
         self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
 
@@ -147,7 +139,7 @@ class Ui_MainWindow(Signals):
         self.gridLayout.addWidget(self.autoStartTimeCheck, 5, 0, 1, 1)
 
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 520, 160, 41))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 490, 160, 41))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
@@ -166,10 +158,39 @@ class Ui_MainWindow(Signals):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 731, 21))
         self.menubar.setObjectName("menubar")
+
+        self.menuHelp = QtWidgets.QMenu(self.menubar)
+        self.menuHelp.setObjectName("menuHelp")
+        self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setObjectName("menuFile")
         MainWindow.setMenuBar(self.menubar)
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+        self.actionGitHub_Wiki = QtWidgets.QAction(MainWindow)
+        self.actionGitHub_Wiki.setObjectName("actionGitHub_Wiki")
+
+        self.actionDeveloper_Portal = QtWidgets.QAction(MainWindow)
+        self.actionDeveloper_Portal.setObjectName("actionDeveloper_Portal")
+
+        self.actionAbout_Discord_RPC = QtWidgets.QAction(MainWindow)
+        self.actionAbout_Discord_RPC.setObjectName("actionAbout_Discord_RPC")
+
+        self.actionComing_Soon = QtWidgets.QAction(MainWindow)
+        self.actionComing_Soon.setEnabled(False)
+        self.actionComing_Soon.setObjectName("actionComing_Soon")
+
+        self.menuHelp.addAction(self.actionGitHub_Wiki)
+        self.menuHelp.addAction(self.actionDeveloper_Portal)
+        self.menuHelp.addSeparator()
+        self.menuHelp.addAction(self.actionAbout_Discord_RPC)
+
+        self.menuFile.addAction(self.actionComing_Soon)
+        
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
         self.bind_signals()
@@ -179,7 +200,6 @@ class Ui_MainWindow(Signals):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         self.updateButton.setText(_translate("MainWindow", "Update Presence"))
-        self.titleLabel.setText(_translate("MainWindow", "Discord Rich Presence Customizer"))
         self.startTimeCheck.setText(_translate("MainWindow", "Start Time"))
         self.partyMaxLabel.setText(_translate("MainWindow", "Party Max"))
         self.largeImageTextLabel.setText(_translate("MainWindow", "Large Image Text"))
@@ -204,12 +224,20 @@ class Ui_MainWindow(Signals):
         self.endTimeCheck.setToolTip(_translate("MainWindow", "Including this will show time as \"remaining\""))
         self.partySizeLabel.setToolTip(_translate("MainWindow", "Current size of the party, lobby or group"))
         self.appIdLabel.setToolTip(_translate("MainWindow", "Your application ID - see the Help menu for more info"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.menuHelp.setTitle(_translate("MainWindow", "Help"))
+        self.actionGitHub_Wiki.setText(_translate("MainWindow", "GitHub Wiki"))
+        self.actionDeveloper_Portal.setText(_translate("MainWindow", "Developer Portal"))
+        self.actionAbout_Discord_RPC.setText(_translate("MainWindow", "About Discord RPC"))
+        self.actionComing_Soon.setText(_translate("MainWindow", "Coming Soon..."))
 
     def bind_signals(self):
         self.startTimeCheck.clicked.connect(self.toggle_start_time)
         self.endTimeCheck.clicked.connect(self.toggle_end_time)
         self.autoStartTimeCheck.clicked.connect(self.toggle_auto_start_time)
         self.updateButton.clicked.connect(self.update_clicked)
+
+        self.actionDeveloper_Portal.triggered.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://discord.com/developers/applications")))
 
 if __name__ == "__main__":
     import sys

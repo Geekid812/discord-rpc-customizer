@@ -1,3 +1,11 @@
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/geekid812/discord-rpc-customizer?style=for-the-badge)](https://github.com/geekid812/discord-rpc-customizer/releases)
+[![pypresence](https://img.shields.io/badge/using-pypresence-00bb88.svg?style=for-the-badge)](https://github.com/qwertyquerty/pypresence)
+[![GitHub](https://img.shields.io/github/license/geekid812/discord-rpc-customizer?style=for-the-badge)](https://github.com/geekid812/discord-rpc-customizer)
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/geekid812?style=social)](https://twitter.com/geekid812)
+[![Discord](https://img.shields.io/discord/760194844001304616?logo=discord&style=social)](https://discord.gg/mHnjK8K)
+
+
 # Discord Rich Presence Customizer
 A desktop application that allows you to create your own rich presence for Discord.
 

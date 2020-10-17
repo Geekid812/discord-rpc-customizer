@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-version = '1.0'
+version = '1.0.0'
 
 class AboutDialog(object):
     def setupUi(self, Dialog):

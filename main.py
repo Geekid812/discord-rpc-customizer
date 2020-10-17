@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from signals import Signals
+from resource import resource_path
 
 class Ui_MainWindow(Signals):
 
@@ -7,7 +8,7 @@ class Ui_MainWindow(Signals):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(730, 600)
         MainWindow.setFixedSize(730, 600)
-        MainWindow.setWindowIcon(QtGui.QIcon('icon.png'))
+        MainWindow.setWindowIcon(QtGui.QIcon(resource_path('icon.ico')))
         MainWindow.setWindowTitle("Discord Rich Presence Customizer")
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)

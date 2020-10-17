@@ -5,6 +5,7 @@ from re import match
 from time import time
 
 from presence import update_presence
+from resource import resource_path
 
 digits_only = r'^[0-9]*$'
 
@@ -72,13 +73,13 @@ class Signals(object):
     
     def invalid_input(self, message):
         msg = QMessageBox(QMessageBox.Warning, "Invalid Input", message, QMessageBox.Ok)
-        msg.setWindowIcon(QIcon('icon.png'))
+        msg.setWindowIcon(QIcon(resource_path('icon.ico')))
         msg.exec_()
         return False
     
     def info_box(self, title, message):
         msg = QMessageBox(QMessageBox.Information, title, message, QMessageBox.Ok)
-        msg.setWindowIcon(QIcon('icon.png'))
+        msg.setWindowIcon(QIcon(resource_path('icon.ico')))
         msg.exec_()
 
     def set_datetimes(self):
